@@ -8,3 +8,55 @@
 Проверить работу примера, создав экземпляр и вызвав описанный метод.
 '''
 
+from time import sleep
+
+import self as self
+
+
+class TrafficLight:
+    __color = ['Красный', 'Желтый', 'Зеленый']
+
+    def running(work):
+        i = 0
+        while i < 3:
+            print(f'Цвет светофора - {TrafficLight.__color[i]}')
+            if i == 0:
+                sleep(7)
+            elif i == 1:
+                sleep(2)
+            elif i == 2:
+                sleep(1)
+            i += 1
+
+TrafficLight = TrafficLight()
+TrafficLight.running()
+
+'''
+2. Реализовать класс Road (дорога), в котором определить атрибуты: length (длина), width (ширина). 
+Значения данных атрибутов должны передаваться при создании экземпляра класса. 
+Атрибуты сделать защищенными. 
+Определить метод расчета массы асфальта, необходимого для покрытия всего дорожного полотна. 
+Использовать формулу: длина * ширина * масса асфальта для покрытия одного кв метра дороги асфальтом, 
+толщиной в 1 см * число см толщины полотна. Проверить работу метода.
+Например: 20м * 5000м * 25кг * 5см = 12500 т
+'''
+
+class Road:
+
+    _length = (int(input('Введите длину полотна в метрах - ')))
+    _width = (int(input('Введите ширину полотна в метрах - ')))
+    _depth = (int(input('Введите толщину покрытия в сантиметрах - ')))
+    _mass = int(25 * _depth)
+    r = int(_length * _width * _mass /1000)
+
+    def __init__(self, _length, _width, _mass):
+        self._length = _length
+        self._width = _width
+        self._mass = _mass
+        Road.r = self._length * self._width * self._mass
+
+print(f'Вес = {Road.r} т')
+
+
+
+
