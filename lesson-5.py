@@ -117,7 +117,7 @@ subjects = {}
 try:
     with open('file_6.txt', 'r') as fh:
         for line in fh.readlines():
-            data = line.replace('(', ' ').split()
+            data = line.replace('(',' ').split()
             subjects[data[0][:-1]] = sum(int(i) for i in data if i.isdigit())
 except IOError as e:
     print(e)
@@ -160,7 +160,7 @@ with open('file_7.txt', 'r') as file:
     profit.update(pr)
     print(f'Прибыль каждой компании - {profit}')
 
-with open('file_7.json', 'w') as write_js:
+with open('file_7.json', 'w', encoding='utf-8') as write_js:
     json.dump(profit, write_js)
     js_str = json.dumps(profit)
     print(f'Создан файл с расширением json со следующим содержимым: \n' f'{js_str}')
